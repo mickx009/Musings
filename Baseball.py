@@ -24,8 +24,8 @@ for team2 in datahome:
 awayteams = ' '.join(awaylist)
 hometeams = ' '.join(homelist)
 
-finalaway = awayteams.strip("")
-finalhome = hometeams.strip("")
+finalaway = awayteams
+finalhome = hometeams
 
 print(finalaway +  " AT "  + finalhome)
 #print(homelist)
