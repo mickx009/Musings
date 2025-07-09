@@ -3,7 +3,7 @@ from pprint import pprint
 import json
 
 
-blanklist = []
+datalist = []
 url = "http://statsapi.mlb.com/api/v1/schedule/games/?sportId=1"
 response = requests.get(url)
 MLB = response.json()
@@ -12,17 +12,22 @@ print("Today's MLB Schedule!")
 print(date)
 games = MLB['dates'][0]['games'][0:]
 for x in games:
-    blanklist.append(x['teams'])
+    datalist.append(x['teams'])
 
 away = []
 home = []
-for ateam in blanklist:
+ascore = []
+hscore = []
+
+for ateam in datalist:
     away.append(ateam['away']['team']['name'])
+    ascore.append(ateam['away']['score'])
 
-for hteam in blanklist:
+for hteam in datalist:
     home.append(hteam['home']['team']['name'])
+    hscore.append(hteam['home']['score'])
 
-for a, h in zip(away, home):
+for a, h, aws, hos in zip(away, home, ascore, hscore):
     print("-----")
-    print(a + " At " + h)
+    print(a + " " + str(aws) + " At " + h + " " + str(hos))
 
