@@ -14,6 +14,7 @@ games = MLB['dates'][0]['games'][0:]
 for x in games:
     datalist.append(x['teams'])
 
+status = []
 away = []
 home = []
 ascore = []
@@ -27,7 +28,13 @@ for hteam in datalist:
     home.append(hteam['home']['team']['name'])
     hscore.append(hteam['home']['score'])
 
-for a, h, aws, hos in zip(away, home, ascore, hscore):
+for final in games:
+    status.append(final['status']['detailedState'])
+
+for a, h, aws, hos, f in zip(away, home, ascore, hscore, status):
     print("-----")
-    print(a + " " + str(aws) + " At " + h + " " + str(hos))
+    print(a + " " + str(aws) + " At " + h + " " + str(hos) + " " + "----" + " " + f)
+
+
+
 
