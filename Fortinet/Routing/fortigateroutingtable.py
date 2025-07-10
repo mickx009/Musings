@@ -6,7 +6,7 @@ from pprint import pprint
 
 username = input("Username:")
 password = getpass.getpass()
-host = "10.10.30.1"
+host = input("Firewall MGMT IP:")
 
 devlist = FortiGate(host=host, username=username, password=password)
 
