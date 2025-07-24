@@ -2,6 +2,8 @@ import requests
 from pprint import pprint
 import json
 from tkinter import *
+import os
+
 
 #Pull Today's schedule from API and add to datalist
 datalist = []
@@ -57,8 +59,9 @@ my_text.tag_configure("center", justify='center')
 my_text.insert(END, content)
 my_text.tag_add("center", "1.0", "end")
 
-root.mainloop()
+os.remove("todaysgames.txt")
 
+root.mainloop()
 
 
 
