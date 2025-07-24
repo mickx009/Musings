@@ -60,9 +60,8 @@ my_text.insert(END, content)
 my_text.tag_add("center", "1.0", "end")
 
 os.remove("todaysgames.txt")
-
+print("games.txt removed")
 root.mainloop()
-
 
 
 
